@@ -2,6 +2,7 @@ import { UsersRepository } from './users.repository';
 import { Injectable } from '@nestjs/common';
 import { User } from './schemas/user.schema';
 import { uuid } from 'uuidv4';
+import { UpdateUserDto } from './dto/update-user.dto';
 
 @Injectable()
 export class UsersService {
@@ -22,7 +23,8 @@ export class UsersService {
       age,
     });
   }
-  
-  async updateUser(userId: string, userUpdates: UpdateUserDto): Promise<User>{
-    return this.usersRepository.findOneAndUpdate({userId}, this.userUpdates);
+
+  async updateUser(userId: string, userUpdates: UpdateUserDto): Promise<User> {
+    return this.usersRepository.findOneAndUpdate({ userId }, userUpdates);
   }
+}
