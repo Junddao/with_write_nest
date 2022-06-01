@@ -28,7 +28,6 @@ export class UsersRepository {
     const user = {
       email: authCredentialsDto.email,
       password: hashedPassword,
-      name: authCredentialsDto.name,
     };
     try {
       await this.userModel.create(user);
